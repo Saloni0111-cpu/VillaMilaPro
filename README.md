@@ -33,3 +33,5 @@ Built with an Angular frontend and a Python backend, this project delivers a smo
 ## 📁 Project Structure
 
 ![Project Structure](images/image1.png)
+![Project Structure](images/image2.png)
+![Project Structure](images/image3.png)
