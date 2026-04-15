@@ -1,0 +1,33 @@
+<div class="carousel-root" [style.--indicator-color]="indicatorColor">
+
+  <div class="image-card">
+    <div
+      class="carousel slide"
+      [id]="carouselId"
+      data-bs-ride="carousel"
+      [attr.data-bs-interval]="interval">
+
+      <div class="carousel-indicators">
+        @for (img of images; track $index) {
+          <button
+            type="button"
+            [attr.data-bs-target]="'#' + carouselId"
+            [attr.data-bs-slide-to]="$index"
+            [class.active]="$index === 0"
+            [attr.aria-current]="$index === 0 ? 'true' : null">
+          </button>
+        }
+      </div>
+
+      <div class="carousel-inner">
+        @for (img of images; track $index) {
+          <div class="carousel-item" [class.active]="$index === 0">
+            <img [src]="img" />
+          </div>
+        }
+      </div>
+
+    </div>
+  </div>
+
+</div>

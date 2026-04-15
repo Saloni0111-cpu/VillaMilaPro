@@ -1,0 +1,239 @@
+<div *ngIf="!isBooked">
+
+    <div class="summary-container pb-5 py-2 bg-light min-vh-100">
+        <div class="container">
+
+            <!-- Breadcrumb -->
+            <nav class="mb-4">
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item text-muted">Home</li>
+                    <li class="breadcrumb-item text-muted">Villas</li>
+                    <li class="breadcrumb-item text-muted">{{ villa?.title }}</li>
+                    <li class="breadcrumb-item fw-bold text-primary">Summary</li>
+                </ol>
+            </nav>
+
+            <h2 class="fw-bold mb-4">Summary</h2>
+
+            <div class="row g-4">
+
+                <!-- ================= LEFT ================= -->
+                <div class="col-lg-8">
+
+                    <!-- Villa Card -->
+                    <div class="card p-3 mb-4">
+                        <div class="d-flex gap-3">
+
+                            <div class="villa-img-box">
+                                <img [src]="villa?.image" class="img-fluid object-fit-cover">
+                            </div>
+
+                            <div class="flex-grow-1">
+
+                                <h3 class="fw-semibold mb-1">{{ villa?.title }}</h3>
+
+                                <p class="text-muted small mb-2">
+                                    📍 {{ villa?.location }}
+                                </p>
+
+                                <div class="row g-2">
+
+                                    <div class="col-6">
+                                        <small class="text-muted">Check In</small>
+                                        <div class="fw-semibold">{{ checkIn }}</div>
+                                    </div>
+
+                                    <div class="col-6">
+                                        <small class="text-muted">Check Out</small>
+                                        <div class="fw-semibold">{{ checkOut }}</div>
+                                    </div>
+
+                                    <div class="col-6">
+                                        <small class="text-muted">Guests</small>
+                                        <div class="fw-semibold">{{ guests }}</div>
+                                    </div>
+
+                                    <div class="col-6">
+                                        <small class="text-muted">Rooms</small>
+                                        <div class="fw-semibold">02</div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ================= CHEF ================= -->
+                    <div class="card p-4 mb-4">
+
+                        <h5 class="fw-semibold mb-3">Chef Service</h5>
+
+                        <div class="alert alert-warning-soft mb-4">
+                            To ensure hassle-free dining experience, we accept chef bookings 48 hrs in advance.
+                        </div>
+
+                        <!-- Breakfast -->
+                        <div class="meal-row">
+                            <div class="meal-left">Breakfast</div>
+
+                            <div class="meal-center">
+                                <button class="counter-btn" (click)="updateMeal('breakfast', -1)">−</button>
+                                <span class="counter-value">{{ breakfastCount }}</span>
+                                <button class="counter-btn" (click)="updateMeal('breakfast', 1)">+</button>
+                            </div>
+
+                            <div class="meal-right">₹2,999</div>
+                        </div>
+
+                        <!-- Lunch -->
+                        <div class="meal-row">
+                            <div class="meal-left">Lunch</div>
+
+                            <div class="meal-center">
+                                <button class="counter-btn" (click)="updateMeal('lunch', -1)">−</button>
+                                <span class="counter-value">{{ lunchCount }}</span>
+                                <button class="counter-btn" (click)="updateMeal('lunch', 1)">+</button>
+                            </div>
+
+                            <div class="meal-right">₹2,999</div>
+                        </div>
+
+                        <!-- Dinner -->
+                        <div class="meal-row">
+                            <div class="meal-left">Dinner</div>
+
+                            <div class="meal-center">
+                                <button class="counter-btn" (click)="updateMeal('dinner', -1)">−</button>
+                                <span class="counter-value">{{ dinnerCount }}</span>
+                                <button class="counter-btn" (click)="updateMeal('dinner', 1)">+</button>
+                            </div>
+
+                            <div class="meal-right">₹2,999</div>
+                        </div>
+
+                    </div>
+
+
+                    <!-- ================= TRANSPORT ================= -->
+                    <div class="card p-4 mb-4">
+
+                        <h5 class="fw-semibold mb-3">Transportation</h5>
+
+                        <div class="row g-3">
+                            <div class="col-md-4" *ngFor="let t of transportOptions">
+
+                                <div class="transport-card" [class.active]="selectedTransport === t" (click)="selectTransport(t)">
+
+                                    <h6 class="fw-semibold mb-1">{{ t.name }}</h6>
+                                    <small class="text-muted">{{ t.persons }}</small>
+
+                                    <div class="text-gold fw-semibold mt-2">
+                                        ₹{{ t.price }}
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <!-- ================= SPECIAL REQUEST ================= -->
+                    <div class="card p-4">
+                        <h5 class="fw-semibold mb-3">Any Special Requests?</h5>
+                        <textarea rows="3" placeholder="Write your request..."></textarea>
+                    </div>
+
+                </div>
+
+                <!-- ================= RIGHT ================= -->
+                <div class="col-lg-4">
+
+                    <div class="card p-4 sticky-top">
+
+                        <h5 class="fw-semibold mb-3">Price Details</h5>
+
+                        <!-- Rental -->
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>Rental</span>
+                            <span>₹{{ villa?.price }}</span>
+                        </div>
+
+                        <!-- Meals -->
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>Meals</span>
+                            <span>
+              ₹{{ (breakfastCount + lunchCount + dinnerCount) * 2999 }}
+            </span>
+                        </div>
+
+                        <!-- Transport -->
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>Transport</span>
+                            <span>₹{{ selectedTransport?.price || 0 }}</span>
+                        </div>
+
+                        <!-- GST -->
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>GST (18%)</span>
+                            <span>
+              ₹{{ (getTotalPrice() * 0.18) | number:'1.0-0' }}
+            </span>
+                        </div>
+
+                        <hr>
+
+                        <!-- TOTAL -->
+                        <div class="d-flex justify-content-between fw-bold">
+                            <span>Total</span>
+                            <span>
+              ₹{{ getTotalPrice() + (getTotalPrice() * 0.18) }}
+            </span>
+                        </div>
+
+                        <!-- BUTTON -->
+                        <button class="btn btn-dark w-100 mt-3" [disabled]="isLoading" (click)="bookNow()">
+
+            <span *ngIf="!isLoading">Proceed to Pay</span>
+            <span *ngIf="isLoading">Processing...</span>
+
+          </button>
+
+                        <!-- SUCCESS -->
+                        <div *ngIf="isBooked" class="text-success mt-2">
+                            Booking Successful ✅
+                        </div>
+
+                        <!-- ERROR -->
+                        <div *ngIf="errorMessage" class="text-danger mt-2">
+                            {{ errorMessage }}
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<div *ngIf="isBooked" class="container text-center mt-5">
+
+    <div class="card p-5 shadow-sm rounded-4">
+
+        <h2 class="text-success mb-3">🎉 Villa Booked Successfully!</h2>
+
+        <p class="text-muted">
+            Your booking has been confirmed.
+        </p>
+
+        <button class="btn btn-dark mt-3" routerLink="/account/profile">
+      Go to profile
+    </button>
+
+    </div>
+
+</div>

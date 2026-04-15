@@ -1,0 +1,100 @@
+        .chip-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            font-family: montserrat;
+        }
+        
+        .filter-chip {
+            padding: 6px 12px;
+            border-radius: 20px;
+            border: 1px solid #ddd;
+            cursor: pointer;
+            transition: 0.2s;
+            font-family: montserrat;
+        }
+        
+        .filter-chip.active {
+            background: black;
+            color: white;
+        }
+        
+        .counter {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: montserrat;
+        }
+        
+        .counter button {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: none;
+            background: black;
+            color: white;
+            font-family: montserrat;
+        }
+        
+        .price-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+        }
+        
+        .reset-btn {
+            text-decoration: none;
+            font-weight: 500;
+            color: #333;
+        }
+        
+        .filter-modal {
+            margin: 0;
+            height: 100%;
+            width: 400px;
+            max-width: 90vw;
+            font-family: montserrat;
+        }
+        
+        .filter-modal.modal-dialog {
+            max-width: 520px;
+            margin: auto;
+        }
+        
+        .filter-modal .modal-content {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            border-radius: 0;
+        }
+        
+        .filter-modal .modal-footer {
+            flex-shrink: 0;
+            background: white;
+            position: sticky;
+            bottom: 0;
+        }
+        /* Tablet */
+        
+        @media (max-width: 992px) {
+            .filter-modal {
+                max-width: 320px;
+            }
+            .filter-modal.modal-dialog {
+                width: 440px;
+            }
+        }
+        /* Mobile */
+        
+        @media (max-width: 576px) {
+            .filter-modal {
+                max-width: 90%;
+            }
+            .filter-modal.modal-dialog {
+                width: 85%;
+            }
+            .filter-modal .modal-body {
+                overflow-y: auto;
+                flex: 1;
+            }
+        }

@@ -1,0 +1,109 @@
+<section class="blog-detail-wrapper" *ngIf="!loading && blog">
+  <div class="container-xl">
+
+    <!-- HERO IMAGE -->
+    <div class="hero-image mb-4">
+      <img [src]="blog.hero_image_url || blog.hero_image" [alt]="blog.title"
+        class="img-fluid w-100 rounded-3" style="max-height: 500px; object-fit: cover;">
+    </div>
+
+    <!-- BLOG HEADER -->
+    <div class="blog-header mb-4">
+      <h1 class="blog-title fw-bold">{{ blog.title }}</h1>
+      <div class="blog-meta d-flex gap-2 text-muted mt-2">
+        <span>{{ blog.author }}</span>
+        <span>•</span>
+        <span>{{ blog.created_at | date:'MMMM yyyy' }}</span>
+        <span>•</span>
+        <span>{{ blog.read_time }}</span>
+      </div>
+    </div>
+
+    <!-- TITLE IMAGE -->
+    <div class="title-image mb-4" *ngIf="blog.title_image_url">
+      <img [src]="blog.title_image_url" [alt]="blog.title"
+        class="img-fluid w-100 rounded-3" style="max-height: 400px; object-fit: cover;">
+    </div>
+
+    <!-- DESCRIPTION -->
+    <div class="blog-description mb-4">
+      <p class="lead text-muted">{{ blog.description }}</p>
+    </div>
+
+    <hr class="mb-4">
+
+    <!-- INTRO -->
+    <div class="blog-intro mb-5">
+      <p>{{ blog.intro }}</p>
+    </div>
+
+    <!-- SECTION 1 -->
+    <ng-container *ngIf="blog.section1_title || blog.section1_text">
+      <div class="row blog-section align-items-center mb-5">
+        <div class="col-lg-4 mb-3 mb-lg-0" *ngIf="blog.image1_url">
+          <img [src]="blog.image1_url" [alt]="blog.section1_title"
+            class="img-fluid rounded-3 w-100" style="object-fit: cover; max-height: 280px;">
+        </div>
+        <div [class]="blog.image1_url ? 'col-lg-8' : 'col-12'">
+          <div class="section-text ps-lg-3">
+            <h3 class="fw-semibold mb-3" *ngIf="blog.section1_title">{{ blog.section1_title }}</h3>
+            <p *ngIf="blog.section1_text">{{ blog.section1_text }}</p>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+    <!-- SECTION 2 -->
+    <ng-container *ngIf="blog.section2_title || blog.section2_text">
+      <div class="row blog-section align-items-center mb-5 flex-lg-row-reverse">
+        <div class="col-lg-4 mb-3 mb-lg-0" *ngIf="blog.image2_url">
+          <img [src]="blog.image2_url" [alt]="blog.section2_title"
+            class="img-fluid rounded-3 w-100" style="object-fit: cover; max-height: 280px;">
+        </div>
+        <div [class]="blog.image2_url ? 'col-lg-8' : 'col-12'">
+          <div class="section-text pe-lg-3">
+            <h3 class="fw-semibold mb-3" *ngIf="blog.section2_title">{{ blog.section2_title }}</h3>
+            <p *ngIf="blog.section2_text">{{ blog.section2_text }}</p>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+    <!-- SECTION 3 -->
+    <ng-container *ngIf="blog.section3_title || blog.section3_text">
+      <div class="row blog-section align-items-center mb-5">
+        <div class="col-lg-4 mb-3 mb-lg-0" *ngIf="blog.image3_url">
+          <img [src]="blog.image3_url" [alt]="blog.section3_title"
+            class="img-fluid rounded-3 w-100" style="object-fit: cover; max-height: 280px;">
+        </div>
+        <div [class]="blog.image3_url ? 'col-lg-8' : 'col-12'">
+          <div class="section-text ps-lg-3">
+            <h3 class="fw-semibold mb-3" *ngIf="blog.section3_title">{{ blog.section3_title }}</h3>
+            <p *ngIf="blog.section3_text">{{ blog.section3_text }}</p>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+    <!-- CONCLUSION -->
+    <ng-container *ngIf="blog.conclusion">
+      <div class="blog-conclusion p-4 rounded-3 mb-5" style="background: #f8f9fa;">
+        <h3 class="fw-semibold mb-3">Conclusion</h3>
+        <p class="mb-0">{{ blog.conclusion }}</p>
+      </div>
+    </ng-container>
+
+  </div>
+</section>
+
+<!-- LOADING STATE -->
+<div class="d-flex justify-content-center align-items-center py-5" *ngIf="loading">
+  <div class="spinner-border text-secondary" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+
+<!-- ERROR STATE -->
+<div class="text-center py-5" *ngIf="!loading && !blog">
+  <p class="text-muted">Blog not found.</p>
+</div>

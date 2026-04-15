@@ -1,0 +1,230 @@
+<div class="search-bar-wrap">
+    <div class="search-bar-pill">
+
+        <!-- location -->
+        <div class="search-item location-item" (click)="toggleLocation()">
+
+            <i class="bi bi-geo-alt icon"></i>
+
+            <div class="text-block">
+                <div class="label">Location / Villas / Farmhouse</div>
+                <div class="value">
+                    {{ searchForm.value.location || 'Where are you going?' }}
+                </div>
+            </div>
+
+            @if(locationOpen()){
+
+            <div class="dropdown-panel location-panel" (click)="$event.stopPropagation()">
+
+                <div class="current-location">
+                    <i class="bi bi-crosshair"></i> Use Current Location
+                </div>
+
+                @for(city of locations; track city){
+                <div class="location-option" (click)="selectLocation(city)">
+                    <div class="icon-box">
+                        <i class="bi bi-geo-alt"></i>
+                    </div>
+
+                    <div>
+                        <div class="city">{{city}}</div>
+                        <div class="state">Maharashtra</div>
+                    </div>
+
+                </div>
+                }
+
+            </div>
+
+            }
+
+        </div>
+
+
+        <!-- checkin -->
+        <div class="search-item" (click)="toggleDate()">
+
+            <i class="bi bi-calendar icon"></i>
+
+            <div class="text-block">
+                <div class="label">Check in</div>
+                <div class="value">
+                    {{ searchForm.value.checkin || 'Add date' }}
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- checkout -->
+        <div class="search-item" (click)="toggleDate()">
+
+            <i class="bi bi-calendar icon"></i>
+
+            <div class="text-block">
+                <div class="label">Check out</div>
+                <div class="value">
+                    {{ searchForm.value.checkout || 'Add date' }}
+                </div>
+            </div>
+
+        </div>
+
+        @if(dateOpen()){
+        <div class="dropdown-panel calendar-panel" (click)="$event.stopPropagation()">
+            <div class="calendar-header">
+
+                <button (click)="prevMonth()">‹</button>
+
+                <div class="month">{{monthOneName}}</div>
+                <div class="month">{{monthTwoName}}</div>
+
+                <button (click)="nextMonth()">›</button>
+
+            </div>
+
+
+            <div class="calendar-body">
+                <!-- month 1 -->
+                <div class="calendar-grid">
+
+                    @for(d of days; track d){
+                    <div class="day-name">{{d}}</div>
+                    } @for(date of monthOne; track date){
+                    <div class="day" (click)="selectDate(date)" [class.start]="isStart(date)" [class.end]="isEnd(date)" [class.range]="inRange(date)" [class.disabled]="isPast(date)" [class.today]="isToday(date)">
+                        {{date.getDate()}}
+                    </div>
+
+                    <div class="day empty" *ngIf="!date"></div>
+                    }
+
+                </div>
+
+                <!-- month 2 -->
+                <div class="calendar-grid">
+
+                    @for(d of days; track d){
+                    <div class="day-name">{{d}}</div>
+                    } @for(date of monthTwo; track date){
+                    <div class="day" (click)="selectDate(date)" [class.start]="isStart(date)" [class.end]="isEnd(date)" [class.range]="inRange(date)" [class.disabled]="isPast(date)" [class.today]="isToday(date)">
+                        {{date.getDate()}}
+                    </div>
+
+                    <div class="day empty" *ngIf="!date"></div>
+                    }
+                </div>
+
+            </div>
+
+
+            <div class="calendar-footer">
+
+                <div class="selected-dates">
+                    {{startDate ? (startDate | date:'dd / MM / yyyy') : 'dd/mm/yyyy'}} → {{endDate ? (endDate | date:'dd / MM / yyyy') : 'dd/mm/yyyy'}}
+                </div>
+
+                <div class="calendar-actions">
+                    <button class="clear" (click)="clearDates()">Clear</button>
+                    <button class="apply" (click)="applyDates()">Apply</button>
+                </div>
+
+            </div>
+
+        </div>
+
+        }
+
+
+        <!-- GUESTS -->
+        <div class="search-item" (click)="toggleGuest()">
+
+            <i class="bi bi-person-plus icon"></i>
+
+            <div class="text-block">
+                <div class="label">Guests</div>
+                <div class="value">
+                    {{ searchForm.value.guests }} guest, {{ searchForm.value.rooms }} room
+                </div>
+            </div>
+
+            @if(guestOpen()){
+
+            <div class="dropdown-panel guest-panel" (click)="$event.stopPropagation()">
+
+
+                <!-- ADULTS -->
+
+                <div class="guest-row">
+
+                    <div>
+                        <div class="guest-title">Adults</div>
+                        <div class="guest-sub">Age 13+ years</div>
+                    </div>
+
+                    <div class="counter">
+                        <button (click)="decreaseGuest()">-</button>
+                        <span>{{ searchForm.value.guests }}</span>
+                        <button (click)="increaseGuest()">+</button>
+                    </div>
+
+                </div>
+
+
+                <!-- CHILDREN -->
+
+                <div class="guest-row">
+
+                    <div>
+                        <div class="guest-title">Children</div>
+                        <div class="guest-sub">Age 0-12</div>
+                    </div>
+
+                    <div class="counter">
+                        <button (click)="decreaseChildren()">-</button>
+                        <span>{{ searchForm.value.children }}</span>
+                        <button (click)="increaseChildren()">+</button>
+                    </div>
+
+                </div>
+
+
+                <!-- ROOMS -->
+
+                <div class="guest-row">
+
+                    <div>
+                        <div class="guest-title">Rooms</div>
+                    </div>
+
+                    <div class="counter">
+                        <button (click)="decreaseRooms()">-</button>
+                        <span>{{ searchForm.value.rooms }}</span>
+                        <button (click)="increaseRooms()">+</button>
+                    </div>
+
+                </div>
+
+
+                <div class="guest-footer">
+
+                    <button class="reset" (click)="resetGuests()">Reset All</button>
+
+                    <button class="apply">Apply</button>
+
+                </div>
+
+            </div>
+
+            }
+
+        </div>
+
+
+        <!-- SEARCH BUTTON -->
+
+        <div class="search-btn">
+            <i class="bi bi-search"></i>
+        </div>
+    </div>
+</div>

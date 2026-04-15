@@ -1,0 +1,191 @@
+        /* ================= GLOBAL ================= */
+        
+        .summary-container {
+            background-color: #f8f9fa;
+            font-family: 'Montserrat', sans-serif;
+        }
+        /* ================= IMAGE ================= */
+        
+        .img-fluid {
+            width: 209px;
+            height: 209px;
+        }
+        
+        .object-fit-cover {
+            object-fit: cover;
+        }
+        /* ================= LAYOUT ================= */
+        
+        .row {
+            right: 3rem;
+        }
+        /* ================= TEXT ================= */
+        
+        .text-gold {
+            color: #957734;
+        }
+        
+        .fw-medium {
+            font-size: 14px;
+        }
+        
+        .extra-small {
+            font-size: 0.75rem;
+        }
+        /* ================= ALERT ================= */
+        
+        .alert-warning-soft {
+            background-color: #fff8eb;
+            color: #856404;
+            border: 1px solid #f3d9a3;
+            padding: 12px;
+            border-radius: 8px;
+        }
+        /* ================= CARD ================= */
+        
+        .card {
+            border-radius: 12px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: box-shadow 0.3s ease;
+            &:hover {
+                box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+            }
+        }
+        /* ================= BREADCRUMB ================= */
+        
+        .breadcrumb-item {
+            font-size: 0.85rem;
+            &+.breadcrumb-item::before {
+                content: ">";
+                font-size: 0.7rem;
+                vertical-align: middle;
+            }
+        }
+        /* ================= BUTTON ================= */
+        
+        .proceed-btn {
+            transition: transform 0.2s ease, background-color 0.2s ease;
+            &:hover {
+                background-color: #000;
+                transform: translateY(-2px);
+            }
+            &:active {
+                transform: translateY(0);
+            }
+        }
+        /* ================= TRANSPORT ================= */
+        
+        .transport-card {
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border-radius: 10px;
+            border: 1px solid #e5e7eb;
+            padding: 12px;
+            &.active {
+                border-color: #957734 !important;
+                background-color: rgba(149, 119, 52, 0.05);
+                box-shadow: 0 4px 12px rgba(149, 119, 52, 0.1);
+            }
+            &:hover:not(.active) {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            }
+        }
+        /* ================= CHEF SECTION ================= */
+        
+        .meal-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 0;
+            border-bottom: 1px solid #eee;
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+        
+        .meal-left {
+            width: 30%;
+            font-weight: 500;
+        }
+        
+        .meal-center {
+            width: 40%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .meal-right {
+            width: 30%;
+            text-align: right;
+            font-weight: 600;
+            color: #957734;
+        }
+        /* ================= COUNTER BUTTON ================= */
+        
+        .counter-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            background: #0c0c0c;
+            font-size: 18px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            /* &:hover {
+        background-color: #2A2927;
+        color: #fff;
+        border-color: #2A2927;
+    }*/
+            &:active {
+                transform: scale(0.95);
+            }
+        }
+        
+        .counter-value {
+            min-width: 24px;
+            text-align: center;
+            font-weight: 500;
+            font-size: 14px;
+        }
+        /* ================= PRICE BOX ================= */
+        
+        .paybox {
+            background-color: #95ddff42;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        /* ================= MISC ================= */
+        
+        .border-dashed {
+            border-style: dashed !important;
+        }
+        /* ================= RESPONSIVE ================= */
+        
+        @media (max-width: 768px) {
+            .meal-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            .meal-center {
+                width: 100%;
+                justify-content: flex-start;
+            }
+            .meal-right {
+                width: 100%;
+                text-align: left;
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .sticky-top {
+                top: 100px !important;
+            }
+        }

@@ -1,0 +1,38 @@
+<div class="account-page">
+
+    <div class=" py-4">
+
+        <div class="row g-4">
+            <!-- RIGHT WALLET CONTENT -->
+            <div class="col-12 col-lg-9">
+
+                <div class="wallet-card shadow-sm">
+
+                    <h4 class="fw-bold mb-4">My Wallet</h4>
+
+                    <!-- Balance -->
+                    <div class="balance-card d-flex justify-content-between align-items-center mb-4">
+                        <span>Total balance</span>
+                        <h5>₹ {{ balance }}</h5>
+                    </div>
+
+                    <!-- Gift card -->
+                    <h6>Add gift card to balance</h6>
+
+                    <input type="text" class="form-control mb-2" placeholder="Enter gift card code" [(ngModel)]="giftCode" />
+
+                    <small class="text-muted">e.g. 8UR4HT6</small>
+
+                    <button class="btn btn-dark mt-3 wallet-btn" (click)="addGiftCard()">
+            Add gift card to balance
+          </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

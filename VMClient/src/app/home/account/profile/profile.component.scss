@@ -1,0 +1,123 @@
+.content-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 62px 0 30px;
+    font-family: montserrat;
+    height: auto;
+    /* important for mobile */
+}
+
+
+/* Header layout */
+
+.section-header {
+    margin-bottom: 16px;
+}
+
+.header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.header-row>div {
+    display: flex;
+    gap: 6px;
+    flex: 0 0 auto;
+}
+
+.header-row>div .btn {
+    width: auto !important;
+    padding: 4px 12px;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.edit-link {
+    cursor: pointer;
+    font-weight: 600;
+    color: #0d6efd;
+}
+
+
+/* Text */
+
+.text-muted {
+    color: #777;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+label {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+p {
+    margin-bottom: 6px;
+    font-size: 14px;
+}
+
+
+/* Field spacing */
+
+.row>div {
+    margin-bottom: 18px;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 767px) {
+    .content-card {
+        padding: 14px;
+        border-radius: 8px;
+    }
+    .header-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: nowrap;
+        /* keeps same line */
+    }
+    h4 {
+        font-size: 18px;
+    }
+    label,
+    p {
+        font-size: 13px;
+    }
+    .text-muted {
+        font-size: 12px;
+    }
+    .btn {
+        font-size: 12px;
+        padding: 4px 8px;
+    }
+}
+
+
+/* ================= TABLET ================= */
+
+@media (min-width: 768px) and (max-width: 1199px) {
+    h4 {
+        font-size: 20px;
+    }
+    .header-row>div {
+        gap: 8px;
+    }
+}
+
+
+/* ================= LAPTOP ================= */
+
+@media (min-width: 1200px) {
+    h4 {
+        font-size: 22px;
+    }
+    .header-row>div {
+        gap: 10px;
+    }
+}

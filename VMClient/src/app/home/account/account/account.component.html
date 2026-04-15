@@ -1,0 +1,74 @@
+<div class="account-page">
+    <div class=" container ">
+        <div class="row pt-6 ">
+
+            <!-- LEFT SIDEBAR -->
+            <div class="col-12 col-md-4 col-lg-3 sidebar-wrapper ">
+
+                <!-- User Info -->
+                <div class="profile-box ">
+                    <h6>Hi, {{ user.name }}</h6>
+                    <small>{{ user.email }}</small>
+                </div>
+
+                <!-- Description -->
+                <p class="sidebar-desc ">
+                    Manage your profile, rewards, and preferences for all our brands in one place.
+                </p>
+
+                <!-- Navigation -->
+                <ul class="nav-list">
+                    <li>
+                        <a class="nav-link" routerLink="profile" routerLinkActive="active">
+                            <i class="fa-regular fa-user"></i>
+                            <span>Profile</span>
+                            <i class="fa-solid fa-chevron-right arrow"></i>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="nav-link" routerLink="bookings" routerLinkActive="active">
+                            <i class="fa-regular fa-rectangle-list"></i>
+                            <span>Bookings</span>
+                            <i class="fa-solid fa-chevron-right arrow"></i>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="nav-link" routerLink="saved" routerLinkActive="active">
+                            <i class="fa-solid fa-gear"></i>
+                            <span>Saved</span>
+                            <i class="fa-solid fa-chevron-right arrow"></i>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="nav-link" routerLink="payment" routerLinkActive="active" routerLink="/paymentsummary">
+                            <i class="fa-solid fa-credit-card"></i>
+                            <span>Payment</span>
+                            <i class="fa-solid fa-chevron-right arrow"></i>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="nav-link" routerLink="wallet" routerLinkActive="active">
+                            <i class="fa-solid fa-wallet"></i>
+                            <span>Wallet</span>
+                            <i class="fa-solid fa-chevron-right arrow"></i>
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Logout -->
+                <button class="btn btn-outline-danger logout-btn" (click)="logout()">
+        Log Out
+      </button>
+
+            </div>
+            <div class="col-12 col-md-8 col-lg-9">
+                <router-outlet></router-outlet>
+            </div>
+
+        </div>
+    </div>
+</div>

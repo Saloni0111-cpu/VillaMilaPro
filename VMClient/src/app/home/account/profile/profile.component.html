@@ -1,0 +1,105 @@
+<!-- CONTENT CARD -->
+<div class=" content-card shadow-sm ">
+
+    <!-- BASIC INFO -->
+    <div class="section-header ">
+        <div class="header-row">
+            <h4 class="mb-0">Basic Information</h4>
+
+            <a *ngIf="!editBasic " (click)="startEdit('basic') ">Edit</a>
+
+            <div *ngIf="editBasic ">
+                <button class="btn btn-sm btn-success me-2 " (click)="saveProfile() ">Save</button>
+
+                <button class="btn btn-sm btn-secondary " (click)="cancelEdit() ">Cancel</button>
+            </div>
+        </div>
+    </div>
+    <p class="text-muted ">Make Sure This Information Is Matches Your Travel ID, Like Your Passport Or License.</p>
+    <div class="row">
+
+        <div class="col-md-4 ">
+
+            <label>Full Name</label>
+
+            <p *ngIf="!editBasic ">{{ user.name }}</p>
+
+            <input *ngIf="editBasic " class="form-control " [(ngModel)]="user.name ">
+        </div>
+
+        <div class="col-md-4 ">
+            <label>Date Of Birth</label>
+
+            <p *ngIf="!editBasic ">{{ user.dob }}</p>
+
+            <input *ngIf="editBasic " type="date " class="form-control " [(ngModel)]="user.dob ">
+        </div>
+
+        <div class="col-md-4 ">
+            <label>Gender</label>
+
+            <p *ngIf="!editBasic ">{{ user.gender }}</p>
+
+            <select *ngIf="editBasic " class="form-select " [(ngModel)]="user.gender ">
+
+          <option>Male</option>
+          <option>Female</option>
+          <option>Other</option>
+
+        </select>
+        </div>
+
+    </div>
+
+    <hr>
+
+    <!-- CONTACT -->
+    <div class="section-header ">
+        <div class="header-row">
+            <h4 class="mb-0">Contact</h4>
+
+            <a *ngIf="!editContact " (click)="startEdit( 'contact') ">Edit</a>
+
+            <div *ngIf="editContact ">
+                <button class="btn btn-sm btn-success me-2 " (click)="saveProfile() ">Save</button>
+                <button class="btn btn-sm btn-secondary " (click)="cancelEdit() ">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <p class="text-muted ">
+        Receive Account Activity Alerts And Trip Updates By Sharing this information.
+    </p>
+
+    <div class="row ">
+
+        <div class="col-md-6 ">
+            <label>Mobile</label>
+
+            <p *ngIf="!editContact ">{{ user.mobile }}</p>
+            <input *ngIf="editContact " class="form-control " [(ngModel)]="user.mobile ">
+        </div>
+
+        <div class="col-md-6 ">
+            <label>Email</label>
+
+            <p *ngIf="!editContact ">{{ user.email }}</p>
+            <input *ngIf="editContact " class="form-control " [(ngModel)]="user.email ">
+        </div>
+
+        <div class="col-md-6 ">
+            <label>Emergency Contact</label>
+
+            <p *ngIf="!editContact ">{{ user.emergency }}</p>
+            <input *ngIf="editContact " class="form-control " [(ngModel)]="user.emergency ">
+        </div>
+
+        <div class="col-md-6 ">
+            <label>Address</label>
+
+            <p *ngIf="!editContact ">{{ user.address }}</p>
+            <input *ngIf="editContact " class="form-control " [(ngModel)]="user.address ">
+        </div>
+
+    </div>
+</div>

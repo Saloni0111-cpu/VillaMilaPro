@@ -1,0 +1,81 @@
+<div class="auth-page container-fluid">
+    <div class="row min-vh-100">
+
+        <div class="col-lg-1 d-none d-lg-block"></div>
+
+        <!-- LEFT LOGIN -->
+        <div class="col-lg-5 auth-left">
+            <form [formGroup]="loginForm" (ngSubmit)="submit()">
+
+                <img src="../../../assets/logo-for-login.jpg" alt="Logo" class="auth-logo" />
+
+                <h1>Login</h1>
+                <p>Login to access your account</p>
+
+                <div class="float-field">
+                    <input type="email" placeholder=" " formControlName="email" /><label>Email</label>
+                </div>
+
+
+                <div class="float-field password-field">
+                    <input [type]="showPassword ? 'text' : 'password'" placeholder=" "
+                        formControlName="password" /><label>Password</label>
+                    <span (click)="showPassword = !showPassword"><i class="bi"
+                            [ngClass]="showPassword ? 'bi-eye-slash' : 'bi-eye'"></i></span>
+                </div>
+
+                <div class="auth-options">
+                    <label class="remember">
+                        <input type="checkbox" formControlName="rememberMe" />
+                        <span>Remember Me</span>
+                    </label>
+
+                    <p class="switch">
+                        <a routerLink="/forgotpassword">Forgot Password?</a>
+                    </p>
+                </div>
+
+                <button type="submit">Login</button>
+
+                <p *ngIf="errorMsg" class="text-danger text-center mt-2">{{ errorMsg }}</p>
+
+                <p class="switch">
+                    Don't have an account?
+                    <a routerLink="/signup">Sign up</a>
+                </p>
+
+                <div class="divider">
+                    <span>Or Login with</span>
+                </div>
+
+                <div class="social-login container-fluid px-0">
+                    <div class="row gx-3">
+                        <div class="col-4">
+                            <button type="button" class="social-btn facebook">
+                                <i class="bi bi-facebook"></i>
+                            </button>
+                        </div>
+                        <div class="col-4">
+                            <button type="button" class="social-btn google">
+                                <i class="bi bi-google"></i>
+                            </button>
+                        </div>
+                        <div class="col-4">
+                            <button type="button" class="social-btn apple">
+                                <i class="bi bi-apple"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- RIGHT IMAGE -->
+        <div class="col-lg-5 auth-right">
+            <app-auth-carousel [images]="carouselImages" [interval]="3000" indicatorColor="#f1c97a"></app-auth-carousel>
+        </div>
+
+        <div class="col-lg-1 d-none d-lg-block"></div>
+
+    </div>
+</div>

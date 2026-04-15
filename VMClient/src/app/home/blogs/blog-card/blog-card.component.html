@@ -1,0 +1,10 @@
+<div class="blog-card cursor-pointer" [routerLink]="['/blogs', blog.id]">
+    <div class="blog-image-wrapper">
+        <img [src]="fullImageUrl" [alt]="blog.title" class="blog-image" />
+    </div>
+    <div class="blog-content">
+        <p class="blog-duration">{{ blog.read_time }}</p>
+        <h5 class="blog-title">{{ blog.title }}</h5>
+        <p class="blog-description">{{ blog.description }}</p>
+    </div>
+</div>

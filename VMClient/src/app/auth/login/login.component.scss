@@ -1,0 +1,128 @@
+//left-login
+.auth-left {
+    padding: 34px 80px 0;
+
+    form {
+        width: 100%;
+        max-width: 420px;
+    }
+}
+
+//title
+.auth-left form h1 {
+    font-size: 40px;
+    margin-bottom: 0;
+}
+
+//subtitle
+.auth-left p {
+    font-size: 15px;
+    margin-bottom: 18px;
+}
+
+.float-field input::selection {
+    background: #f1c97a;
+}
+
+.password-field {
+    position: relative;
+
+    span {
+        position: absolute;
+        right: 14px;
+        top: 0;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+        color: #9aa0a6;
+        cursor: pointer;
+        user-select: none;
+        transition: color 0.15s ease;
+    }
+
+    span:hover {
+        color: #000000;
+    }
+}
+
+.auth-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    margin: 0 0 0 0;
+}
+
+.remember {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.forgot {
+    color: #ff5a5f;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+//signup switch
+.switch {
+    margin-top: 24px;
+    font-size: 14px;
+    text-align: center;
+
+    a {
+        color: #e53935;
+        font-weight: 500;
+        text-decoration: none;
+    }
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    margin: 28px 0 22px;
+
+    &::before,
+    &::after {
+        content: '';
+        flex: 1;
+        height: 1px;
+        background: #e0e0e0;
+    }
+
+    span {
+        margin: 0 12px;
+        font-size: 13px;
+        color: #6c757d;
+        white-space: nowrap;
+    }
+}
+
+.social-btn.facebook i {
+    color: #1877f2;
+}
+
+.social-btn.google i {
+    color: #ea4335;
+}
+
+.social-btn.apple i {
+    color: black;
+}
+
+.auth-right {
+    padding: 40px;
+}
+
+@media (max-width: 768px) {
+  .auth-right {
+    display: none;
+  }
+
+  .auth-left {
+    padding: 0 24px;
+  }
+}

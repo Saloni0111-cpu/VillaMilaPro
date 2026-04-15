@@ -1,0 +1,88 @@
+<div class="container payment-method-wrapper">
+    <div class="row g-4">
+        <div class="col-lg-8">
+            <div class="payment-wrapper">
+                <div class="row g-3 mb-3">
+
+                    <div class="col-6">
+                        <div class="pay-box" [class.active]="paymentType === 'full'" (click)="selectPayment('full')">
+                            <input type="radio" name="payType" [checked]="paymentType === 'full'" />
+
+                            <div>
+                                <div class="title">Pay Fully</div>
+                                <div class="sub">100%</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="pay-box" [class.active]="paymentType === 'partial'"
+                            (click)="selectPayment('partial')">
+                            <input type="radio" name="payType" [checked]="paymentType === 'partial'" />
+
+                            <div>
+                                <div class="title">Partial Payment</div>
+                                <div class="sub">25%</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-12">
+
+                        <div class="wallet-box">
+
+                            <div class="wallet-icon">
+                                <i class="bi bi-wallet2"></i>
+                            </div>
+
+                            <div>
+                                <div class="wallet-title">Wallet Credits</div>
+                                <div class="wallet-sub">
+                                    You do not have any wallet credits points
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="payment-method-box">
+                            <div class="row g-0">
+                                <div class="col-3 method-list">
+                                    <div class="method">UPI Payment</div>
+                                    <div class="method active-sub">
+                                        Scan and Pay
+                                    </div>
+                                    <div class="method">Netbanking</div>
+                                    <div class="method">Credit / Debit Cards</div>
+                                    <div class="method">COD</div>
+                                </div>
+
+                                <div class="col-9 method-content">
+                                    <div class="qr-container">
+                                        <div class="qr"></div>
+                                        <div class="generate">
+                                            Generate QR code
+                                        </div>
+                                        <div class="qr"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <app-payment-transcript></app-payment-transcript>
+        </div>
+
+    </div>
+</div>

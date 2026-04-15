@@ -1,0 +1,51 @@
+<section class="blogs-wrapper py-5">
+
+    <div class="container-xl">
+
+        <!-- section header -->
+        <div class="section-header text-center mb-5">
+            <h2 class="fw-bold">Blogs</h2>
+            <p class="text-muted">
+                Discover travel inspiration, villa experiences and getaway ideas.
+            </p>
+        </div>
+
+        <!-- blog grid -->
+        <div class="row g-4">
+
+            @for (blog of paginatedBlogs; track blog.id) {
+
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <app-blog-card [blog]="blog"></app-blog-card>
+            </div>
+
+            } @empty {
+
+            <div class="col-12 text-center py-5">
+                <p>No blogs available</p>
+            </div>
+
+            }
+
+        </div>
+
+        <!-- pagination -->
+        <div class="pagination-wrapper d-flex justify-content-center mt-5">
+
+            <nav>
+                <ul class="pagination">
+
+                    @for (page of pages; track page) {
+
+                    <li class="page-item" [class.active]="page === currentPage">
+                        <button class="page-link" (click)="setPage(page)">
+                            {{ page }}
+                        </button>
+                    </li>
+                    }
+
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>

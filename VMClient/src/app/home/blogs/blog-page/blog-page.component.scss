@@ -1,0 +1,48 @@
+.blogs-wrapper {
+    background: #faf8f5;
+}
+
+.section-header {
+
+    h2 {
+        font-size: 32px;
+        font-weight: 700;
+    }
+
+    p {
+        max-width: 500px;
+        margin: 0 auto;
+        font-size: 15px;
+    }
+}
+
+.pagination-wrapper {
+
+    .pagination {
+        gap: 6px;
+    }
+
+    .page-item {
+
+        .page-link {
+            border-radius: 8px;
+            border: none;
+            padding: 8px 14px;
+            background: #f1f1f1;
+            color: #333;
+            transition: all 0.2s ease;
+        }
+
+        .page-link:hover {
+            background: #000;
+            color: #fff;
+        }
+
+        &.active .page-link {
+            background: #000;
+            color: #fff;
+        }
+
+    }
+
+}

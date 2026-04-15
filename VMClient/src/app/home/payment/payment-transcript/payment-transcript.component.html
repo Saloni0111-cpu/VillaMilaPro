@@ -1,0 +1,77 @@
+<div class="payment-card">
+
+  <h5 class="title">Price details</h5>
+
+  <div class="price-row">
+    <span>Rental charges</span>
+    <span>₹ {{ rentalCharges | number }}</span>
+  </div>
+
+  <div class="price-row">
+    <span>Chef</span>
+    <span>₹ {{ chefCharges | number }}</span>
+  </div>
+
+  <div class="price-row">
+    <span>GST</span>
+    <span>₹ {{ gst | number }}</span>
+  </div>
+
+  <div class="price-row discount">
+    <span>Coupon</span>
+    <span>- ₹ {{ coupon | number }}</span>
+  </div>
+
+  <div class="coupon-box">
+    <div class="coupon-left">
+      <i class="bi bi-patch-check-fill coupon-icon"></i>
+
+      <div class="coupon-text">
+        <strong>{{ couponCode }}</strong>
+        <p>Apply to save upto ₹{{ couponMax | number }}</p>
+      </div>
+    </div>
+
+    <button class="apply-btn">Apply</button>
+  </div>
+
+  <a class="view-coupons">
+    <i class="bi bi-ticket-perforated"></i>
+    <span>View coupons / Apply Future Stay Voucher</span>
+    <i class="bi bi-arrow-right"></i>
+  </a>
+
+  <div class="total-box">
+    <span>Total Payable</span>
+    <span>₹ {{ totalPayable | number }}</span>
+  </div>
+
+  <p class="note">
+    <strong>Note:</strong> Dear guest, you will receive a call from our team to
+    confirm your booking. Please allow us some time to get in touch.
+  </p>
+
+  <label class="terms">
+    <input type="checkbox" [(ngModel)]="acceptedTerms" />
+    <span>
+      I have read and accepted the
+      <a>Terms & Conditions</a>,
+      <a>Privacy Policies</a>,
+      <a>Cancellation Policy</a> and
+      <a>Indemnity Form</a>
+    </span>
+  </label>
+
+  <button class="pay-btn" [disabled]="!acceptedTerms" routerLink="/paymentmethod">
+    Proceed to Pay
+  </button>
+
+</div>
+
+<div class="secure-box">
+  <i class="bi bi-shield-check"></i>
+  <div>
+    <strong>100% Secure payment</strong>
+    <p>Trusted by 5Lakh+ guests</p>
+  </div>
+</div>

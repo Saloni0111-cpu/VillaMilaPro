@@ -1,0 +1,28 @@
+<!-- <app-header></app-header>
+<router-outlet></router-outlet>
+<app-footer></app-footer> -->
+
+<!-- <app-header *ngIf="!showSplash"></app-header> -->
+
+<!-- Splash Screen -->
+<!-- <div class="splash-screen" *ngIf="showSplash">
+  <img src="../assets/framecartel-logo/FrameCartel Logo (1).png" alt="Logo" />
+</div> -->
+
+<!-- Main Content -->
+<!-- <div *ngIf="!showSplash">
+  <router-outlet></router-outlet>
+  <app-footer></app-footer>
+</div> -->
+
+@if (showLayout && !showSplash) {
+  <app-header></app-header>
+}
+
+@if (!showSplash) {
+  <router-outlet></router-outlet>
+}
+
+@if (showLayout && !showSplash) {
+  <app-footer></app-footer>
+}

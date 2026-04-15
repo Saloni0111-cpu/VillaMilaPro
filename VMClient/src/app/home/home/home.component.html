@@ -1,0 +1,549 @@
+<!--HERO SECTION-->
+
+<section class="hero-wrapper position-relative mx-auto mb-5 border border-rounded">
+    <div class="hero-container mx-auto mt-4 rounded-5 overflow-hidden position-relative d-flex align-items-center justify-content-center">
+        <div class="position-absolute top-0 start-0 w-100 h-100">
+        </div>
+        <div class="position-relative w-100 px-3 text-center text-white hero-content" style="z-index: 2;">
+            <h1 class="display-2 fw-bold mb-3 hero-title">Explore Farm House & Villas<br> For Every Peaceful Escape</h1>
+            <p class="fs-4 fw-light opacity-90 hero-subtitle">A stay as beautiful as the destination- Luxury, comfort, and nature. We've got the rest</p>
+        </div>
+    </div>
+    <div class="search-bar-wrap w-100 d-flex justify-content-center px-3" style="z-index: 10;">
+        <div class="search-bar-pill bg-white shadow-lg rounded-pill d-flex flex-column flex-lg-row align-items-center w-100 max-width-100 px-2 py-1 py-lg-0">
+            <div class="search-item d-flex align-items-center gap-3 px-4 py-3">
+                <img class="icon-2rem" src="assets/Location marker.svg" alt="Location" />
+                <div class="text-start">
+                    <div class="fw-bold text-nowrap">Location / Villas / Farmhouse</div>
+                    <div class="small text-secondary fw-light">Where are you going?</div>
+                </div>
+            </div>
+            <div class="search-item d-flex align-items-center gap-3 px-4 py-3 border-end-lg">
+                <img class="icon-2rem" src="assets/Calendar.svg" alt="Calendar" />
+                <div class="text-start">
+                    <div class="fw-bold text-nowrap">Check in</div>
+                    <div class="small text-secondary fw-light">Add date</div>
+                </div>
+            </div>
+            <div class="search-item d-flex align-items-center gap-3 px-4 py-3 border-end-lg">
+                <img class="icon-2rem" src="assets/Calendar.svg" alt="Calendar" />
+                <div class="text-start">
+                    <div class="fw-bold text-nowrap">Check out</div>
+                    <div class="small text-secondary fw-light">Add date</div>
+                </div>
+            </div>
+            <div class="search-item d-flex align-items-center gap-3 px-4 py-3">
+                <img class="icon-2rem" src="assets/User add.svg" alt="Guests" />
+                <div class="text-start">
+                    <div class="fw-bold text-nowrap">Guests</div>
+                    <div class="small text-secondary fw-light">2 guest, 1 Room</div>
+                </div>
+                <div class="search-submit ms-3 bg-dark rounded-circle d-flex align-items-center justify-content-center z-3">
+                    <img src="assets/Search.svg" alt="Search" class="img-fluid p-2" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <app-search-bar></app-search-bar>
+</section>
+<!---EXPLORE SECTION DESIGN-->
+<div class="explore-wrapper bg-white py-1">
+    <div class="container-xl px-4">
+        <section class="explore-destination mb-5 position-relative">
+            <div class="section-header mb-4">
+                <h2 class="fw-bold h2 mb-1">Explore By Destination</h2>
+                <p class="text-secondary small">
+                    Discover great places and find your next unforgettable getaway.
+                </p>
+            </div>
+            <div class="carousel-container position-relative">
+                <!-- Arrows -->
+                <button (click)="scrollCarousel(-1)" class="btn btn-sm btn-light shadow-sm position-absolute start-0 top-50 z-3 carousel-arrow" aria-label="Previous">
+                    <i class="bi bi-chevron-left text-dark"></i>
+                </button>
+
+                <div class="destinations-container d-flex flex-column gap-3 py-2 px-5">
+                    <div *ngFor="let row of destinationsRows" #carousel class="carousel-track d-flex flex-nowrap overflow-hidden gap-3">
+                        <div *ngFor="let place of row" class="carousel-card text-center cursor-pointer flex-shrink-0">
+                            <img [src]="place.img" class="destination-img" [alt]="place.name">
+                            <div class="fw-bold small mt-2 text-dark">{{ place.name }}</div>
+                        </div>
+                    </div>
+                </div>
+
+                <button (click)="scrollCarousel(1)" class="btn btn-sm btn-light shadow-sm position-absolute end-0 top-50 z-3 carousel-arrow" aria-label="Next">
+                    <i class="bi bi-chevron-right text-dark"></i>
+                </button>
+            </div>
+
+            <!-- Pagination/Dots -->
+            <div class="d-flex justify-content-center mt-3">
+                <div class="dot-container bg-light rounded-pill p-1 d-flex gap-1">
+                    <span *ngFor="let page of destinationPages; let i = index" class="dot" [class.active]="activeDestinationIndex === i" (click)="goToDestinationPage(i)"></span>
+                </div>
+            </div>
+
+
+            <!-- Clean Explore Banner Section -->
+            <div class="explore-banner-container mt-5 position-relative rounded-4 overflow-hidden shadow-sm">
+                <img src="/assets/exploreBelow.jpg" alt="Explore Banner" class="w-100 banner-img">
+                <div class="banner-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center">
+                    <div class="container-fluid px-4 px-lg-5">
+                        <div class="row align-items-center">
+                            <div class="col-lg-9">
+                                <div class="d-flex flex-column align-items-start">
+                                    <div class="badge bg-white text-dark rounded-pill py-1 px-3 fw-bold mb-2 small shadow-sm">
+                                        Company-<strong>Serviced</strong>
+                                    </div>
+                                    <div class="d-flex align-items-center flex-wrap gap-3 gap-lg-4">
+                                        <h1 class="fw-bold mb-0 text-white banner-title">
+                                            India's no 1 premium <br class="d-none d-md-block"> value hotel
+                                        </h1>
+                                        <div class="d-flex flex-column mt-2 mt-lg-0 ms-5">
+                                            <ul class="banner-promo-list list-unstyled text-white mb-1 small ms-3">
+                                                <li class="d-flex align-items-center gap-2 mb-1">
+                                                    <i class="bi bi-dot fs-4 text-white"></i> Assured CheckIn
+                                                </li>
+                                                <li class="d-flex align-items-center gap-2 mb-1">
+                                                    <i class="bi bi-dot fs-4 text-white"></i> Spacious Clean Rooms
+                                                </li>
+                                                <li class="d-flex align-items-center gap-2">
+                                                    <i class="bi bi-dot fs-4 text-white"></i> 1000+ new properties
+                                                </li>
+                                            </ul>
+                                            <button class="btn btn-light rounded-2 px-3 py-1 fw-bold shadow-sm book-now-btn" routerLink="/bookings">
+                                                Book Now
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 text-lg-end mt-3 mt-lg-0">
+                                <div class="text-white">
+                                    <p class="mt-5 opacity-75 small fw-light text-white">Starting from</p>
+                                    <h2 class="display-5 fw-bold mb-0">₹999</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<!--AVAILABLE SECTION-->
+<div class="explore-wrapper bg-white py-1">
+    <div class="container-xl px-4">
+        <section class="available-wrapper mb-5 position-relative">
+            <div class="section-header mb-4">
+                <h2 class="fw-bold h2 mb-1">Available This Weekend</h2>
+                <div class="btn-container mt-4"> <button class="btn btn-white filter-btn rounded-pill px-4 py-2 fw-bold" *ngFor="let location of locations" [class.active]="selectedLocation === location" (click)="selectLocation(location)"> {{ location }} </button> </div>
+            </div>
+            <div class="carousel-container position-relative">
+                <!-- Arrows --><button (click)="scrollVillas('available', -1)" class="btn btn-sm btn-light position-absolute start-0 top-50 z-3 carousel-arrow " aria-label="Previous"> <i class="bi bi-chevron-left "></i> </button>
+                <div class="carousel-track d-flex flex-nowrap overflow-hidden gap-4 mt-2 px-5 py-2" #availableCarousel>
+                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 flex-shrink-0" *ngFor="let villa of filteredVillas">
+                        <div class="card border-0 rounded-4 h-100 cursor-pointer" [routerLink]="['/villa-details']">
+                            <!-- Image Wrapper -->
+                            <div class="card-img-wrapper position-relative"> <img [src]="villa.image" class="villa-card-img" [alt]="villa.name">
+                                <!-- Rating Badge --><span class="badge bg-light text-dark position-absolute top-0 start-0 m-3 rounded-pill px-3 py-2 d-flex align-items-center gap-1" style="backdrop-filter: blur(10px);"> ⭐ {{ villa.rating }} </span>
+                                <!-- Wishlist Icon --><button class="btn btn-light rounded-circle position-absolute top-0 end-0 m-3 p-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;" (click)="$event.stopPropagation(); toggleLike(villa)"> 
+                                    <i class="bi" [ngClass]="isSaved(villa.id) ? 'bi-heart-fill liked text-danger' : 'bi-heart'" style="font-size: 1.2rem;"></i> 
+                                </button>
+                                </div>
+                            <!-- Card Body -->
+                            <div class="card-body px-3 pt-3">
+                                <h5 class="fw-semibold mb-1">{{ villa.name }}</h5>
+                                <!-- Location -->
+                                <div class="d-flex align-items-center text-muted small mb-2"> <i class="bi bi-geo-alt me-1"></i> {{ villa.location }} </div>
+                                <!-- Details -->
+                                <div class="d-flex align-items-center text-muted small gap-2 mb-3"> <span>Upto {{ villa.guests }} Guests</span> <span>•</span> <span>{{ villa.rooms }} Rooms</span> <span>•</span> <span>{{ villa.baths }} Baths</span> </div>
+                                <!-- Price -->
+                                <div class="d-flex align-items-center gap-2"> <span class="text-decoration-line-through text-muted small">₹{{ villa.originalPrice | number }}</span> <span class="fw-bold fs-5 text-warning">₹{{ villa.discountedPrice | number }}</span> <span class="text-muted small">/ night</span>                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <button (click)="scrollVillas('available', 1)" class="btn btn-sm btn-light shadow-sm position-absolute end-0 top-50 z-3 carousel-arrow" aria-label="Next"> <i class="bi bi-chevron-right text-dark"></i> </button>
+            </div>
+
+            <!-- Pagination/Dots -->
+            <div class="d-flex justify-content-center mt-3">
+                <div class="dot-container bg-light rounded-pill p-1 d-flex gap-1"> <span *ngFor="let page of villaPages; let i = index" class="dot" [class.active]="activeAvailableIndex === i" (click)="goToVillaPage('available', i)"></span> </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<div class="explore-wrapper bg-white py-2">
+    <div class="container-xl px-4">
+
+        <section class="available-wrapper mb-5 position-relative">
+
+            <div class="section-header mb-4">
+                <h2 class="fw-bold h2 mb-1">Top Rated Villas</h2>
+
+                <div class="btn-container mt-4">
+                    <button class="btn btn-white filter-btn rounded-pill px-4 py-2 fw-bold" *ngFor="let location of locations" [class.active]="selectedLocation === location" (click)="selectLocation(location)">
+            {{ location }}
+          </button>
+                </div>
+            </div>
+
+
+            <div class="carousel-container position-relative">
+
+                <!-- LEFT ARROW (FIXED) -->
+                <button (click)="scrollVillas('topRated', -1)" class="btn btn-sm btn-light shadow-sm position-absolute start-0 top-50 z-3 carousel-arrow" aria-label="Previous">
+          <i class="bi bi-chevron-left text-dark"></i>
+        </button>
+
+
+                <!-- CAROUSEL -->
+                <div class="carousel-track d-flex flex-nowrap overflow-hidden gap-4 mt-2 px-5 py-2" #topRatedCarousel>
+                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 flex-shrink-0" *ngFor="let villa of topRatedVillas">
+
+                        <div class="card border-0 rounded-4 h-100">
+
+                            <!-- Image -->
+                            <div class="position-relative">
+
+                                <img [src]="villa.image" class="card-img-top rounded-4" [alt]="villa.name" style="height:18rem;object-fit:cover;">
+
+                                <!-- Rating -->
+                                <span class="badge bg-light text-dark position-absolute top-0 start-0 m-3 rounded-pill px-3 py-2 d-flex align-items-center gap-1" style="backdrop-filter: blur(10px);">
+                  ⭐ {{ villa.rating }}
+                </span>
+
+                                <!-- Wishlist -->
+                                <button class="btn btn-light rounded-circle position-absolute top-0 end-0 m-3 p-2 d-flex align-items-center justify-content-center" style="width:40px;height:40px;" (click)="$event.stopPropagation(); toggleLike(villa)">
+                                    <i class="bi" [ngClass]="isSaved(villa.id) ? 'bi-heart-fill liked text-danger' : 'bi-heart'" style="font-size:1.2rem;"></i>
+                                </button>
+
+                            </div>
+
+
+                            <!-- Card Body -->
+                            <div class="card-body px-3 pt-3">
+
+                                <h5 class="fw-semibold mb-1">
+                                    {{ villa.name }}
+                                </h5>
+
+                                <div class="d-flex align-items-center text-muted small mb-2">
+                                    <i class="bi bi-geo-alt me-1"></i> {{ villa.location }}
+                                </div>
+
+                                <div class="d-flex align-items-center text-muted small gap-2 mb-3">
+                                    <span>Upto {{ villa.guests }} Guests</span>
+                                    <span>•</span>
+                                    <span>{{ villa.rooms }} Rooms</span>
+                                    <span>•</span>
+                                    <span>{{ villa.baths }} Baths</span>
+                                </div>
+
+                                <div class="d-flex align-items-center gap-2">
+                                    <span class="text-decoration-line-through text-muted small">
+                    ₹{{ villa.originalPrice | number }}
+                  </span>
+
+                                    <span class="fw-bold fs-5 text-warning">
+                    ₹{{ villa.discountedPrice | number }}
+                  </span>
+
+                                    <span class="text-muted small">/ night</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- RIGHT ARROW -->
+                <button (click)="scrollVillas('topRated', 1)" class="btn btn-sm btn-light shadow-sm position-absolute end-0 top-50 z-3 carousel-arrow" aria-label="Next">
+          <i class="bi bi-chevron-right text-dark"></i>
+        </button>
+
+            </div>
+
+
+            <!-- DOTS -->
+            <div class="d-flex justify-content-center mt-3">
+                <div class="dot-container bg-light rounded-pill p-1 d-flex gap-1">
+                    <span *ngFor="let page of villaPages; let i = index" class="dot" [class.active]="activeTopRatedIndex === i" (click)="goToVillaPage('topRated', i)"></span>
+                </div>
+            </div>
+
+        </section>
+
+    </div>
+</div>
+
+
+<!--Why choose us section-->
+
+<section class="why-us-section py-5 px-4 px-md-0 position-relative">
+    <img src="assets/Vector-1.svg" alt="" class="decorative-vector-v1 position-absolute z-3 pe-none">
+    <div class="container-xl py-lg-5">
+        <div class="row align-items-center g-5">
+            <!-- Left: Overlapping Images -->
+            <div class="col-lg-6">
+                <div class="img-stack position-relative">
+                    <img src="assets/HomeImages/ExploreByDestination/whyus.svg" alt="Main Villa" class="img-main rounded-4 shadow-lg">
+                    <img src="assets/HomeImages/ExploreByDestination/whyus2.svg" alt="Villa Detail" class="img-sub rounded-4 shadow-lg">
+                    <!-- Decorative element for aesthetics -->
+                    <div class="decorative-blob"></div>
+                </div>
+            </div>
+
+            <!-- Right: Content & Features -->
+            <div class="col-lg-6 ">
+                <div class="content-wrapper ps-lg-3 pe-5">
+                    <span class="badge text-uppercase fw-bold mb-4 text-gold">Why Choose Us</span>
+                    <h3 class="display">
+                        <span class="d-block">Giving The Best & Comfortable</span>
+                        <span class="d-block">Just For You</span>
+                    </h3>
+
+                    <p class="text-muted leading-relaxed mb-2">
+                        We provide verified listings, real-time availability, and direct communication, ensuring transparency, reliability, and cost effectiveness for clients.
+                        <br> We handpick every property to ensure it combines comfort, beauty, and trust<br>—so you can focus on creating memories.
+                    </p>
+
+                    <div class="feature-list">
+                        <div class="feature-item d-flex align-items-center mb-4">
+                            <div class="feature-icon-box me-3">
+                                <img src="assets/human-resources-employee--Streamline-Ultimate-2.svg" alt="Icon" class="feature-img-icon">
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-1">Premium guest experience</h6>
+                                <p class="small text-muted mb-0">Luxurious stays with bespoke experiences and warm hospitality.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item d-flex align-items-center mb-4">
+                            <div class="feature-icon-box me-3">
+                                <img src="assets/singleBed.svg" alt="Icon" class="feature-img-icon">
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-1">Exclusive Amenities</h6>
+                                <p class="small text-muted mb-0">Spacious rooms with lavish amenities always included.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item d-flex align-items-center mb-4">
+                            <div class="feature-icon-box me-3">
+                                <img src="assets/human-resources-employee--Streamline-Ultimate-1.svg" alt="Icon" class="feature-img-icon">
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-1">Chef Services</h6>
+                                <p class="small text-muted mb-0">Gourmet meals, cooked fresh at your villa.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item d-flex align-items-center">
+                            <div class="feature-icon-box me-3">
+                                <img src="assets/human-resources-employee--Streamline-Ultimate.svg" alt="Icon" class="feature-img-icon">
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-1">Transportation</h6>
+                                <p class="small text-muted mb-0">Seamless rides, doorstep pickup to villa.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section with Dark Background -->
+<section class="stats-section py-1">
+    <div class="container-xl py-5">
+        <div class="row text-center justify-content-center g-5 ">
+            <div *ngFor="let item of whyUs" class="col-lg-3 col-md-6">
+                <div class="stat-item p-3 d-flex flex-column align-items-center">
+                    <img class="stat-pill-img rounded-pill   mb-3" [src]="item.image" alt="Stat Icon">
+                    <h3 class="fw-semibold text-white mb-1 fs-1 mt-4">{{item.quantity}}</h3>
+                    <p class="text-white-50 mb-0 small text-uppercase fw-semibold">{{item.description}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!--COLLECTION SECTION-->
+
+<div class="explore-wrapper bg-white py-1">
+    <div class="container-xl px-4">
+        <section class="collection-wrapper mb-3 position-relative">
+            <div class="section-header mb-4">
+                <h1 class="fw-bold mb-1">Explore By Collection</h1>
+                <p class="text-secondary small">
+                    Discover great places and find your next unforgettable getaway.
+                </p>
+            </div>
+
+            <div class="carousel-container position-relative">
+                <button (click)="scrollCollections(-1)" class="btn btn-sm btn-light shadow-sm position-absolute start-0 top-50 z-3 carousel-arrow" aria-label="Previous">
+                    <i class="bi bi-chevron-left text-dark"></i>
+                </button>
+
+                <div class="carousel-track d-flex flex-nowrap overflow-hidden gap-4 mt-2 px-5 py-2" #collectionCarousel>
+                    <!-- Collection Items -->
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 flex-shrink-0" *ngFor="let item of collections">
+                        <div class="collection-item position-relative overflow-hidden rounded-4  h-100">
+                            <img [src]="item.image" class="img-fluid rounded-4 w-100" [alt]="item.title" style="height: 250px; object-fit: cover;">
+                            <div class="item-overlay text-white text-start rounded-2 ">
+                                <h6 class="fw-bold mb-0">{{ item.title }}</h6>
+                                <p class="small mb-0 opacity-75 text-white ">{{ item.count }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button (click)="scrollCollections(1)" class="btn btn-sm btn-light shadow-sm position-absolute end-0 top-50 z-3 carousel-arrow" aria-label="Next">
+                    <i class="bi bi-chevron-right text-dark"></i>
+                </button>
+            </div>
+
+            <!-- Pagination/Dots -->
+            <div class="d-flex justify-content-center mt-3">
+                <div class="dot-container bg-light rounded-pill p-1 d-flex gap-1">
+                    <span *ngFor="let page of collectionPages; let i = index" class="dot" [class.active]="activeCollectionIndex === i" (click)="goToCollectionPage(i)"></span>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+
+<!--Blogs Design-->
+<div class="explore-wrapper bg-white py-1">
+    <div class="container-xl px-4">
+        <section class="collection-wrapper mb-5 position-relative">
+            <div class="section-header mb-4">
+                <h1 class="fw-bold mb-1">Blogs</h1>
+                <p class="text-secondary small">
+                    Discover great places and find your next unforgettable getaway.
+                </p>
+            </div>
+
+            <div class="carousel-container position-relative">
+                <button (click)="scrollBlogs(-1)" class="btn btn-sm btn-light shadow-sm position-absolute start-0 top-50 z-3 carousel-arrow" aria-label="Previous">
+                    <i class="bi bi-chevron-left text-dark"></i>
+                </button>
+
+                <div class="carousel-track d-flex flex-nowrap overflow-hidden gap-4 mt-2 px-5 py-2" #blogCarousel>
+                    <!-- Blog Items -->
+                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 flex-shrink-0" *ngFor="let item of blogs">
+                        <div class="blog-item position-relative overflow-hidden rounded-4 h-100 bg-white shadow-sm">
+                            <img [src]="item.image" class="img-fluid rounded-4 w-100" [alt]="item.title" style="height: 250px; object-fit: cover;">
+                            <div class="item-body p-3 text-start">
+                                <p class="small mb-1 text fw-medium">{{ item.duration }}</p>
+                                <h6 class="fw-bold mb-2 text-dark">{{ item.title }}</h6>
+                                <p class="small mb-0 text-secondary lh-base">{{ item.description }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button (click)="scrollBlogs(1)" class="btn btn-sm btn-light shadow-sm position-absolute end-0 top-50 z-3 carousel-arrow" aria-label="Next">
+                    <i class="bi bi-chevron-right text-dark"></i>
+                </button>
+            </div>
+
+            <!-- Pagination/Dots -->
+            <div class="d-flex justify-content-center mt-3">
+                <div class="dot-container bg-light rounded-pill p-1 d-flex gap-1">
+                    <span *ngFor="let page of blogPages; let i = index" class="dot" [class.active]="activeBlogIndex === i" (click)="goToBlogPage(i)"></span>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<!--Review Us-->
+
+<section class="why-us-section py-1 px-4 px-md-0 mb-4 position-relative">
+    <div class="container-xl mt-4">
+        <div class="row align-items-center g-5">
+            <!-- Left: Carousel Content -->
+            <div class="col-lg-6">
+                <div class="review-carousel-container position-relative">
+                    <div class="carousel-track review-track d-flex flex-nowrap" #reviewCarousel>
+                        <div *ngFor="let review of reviews" class="review-slide flex-shrink-0 w-100">
+                            <div class="image-stack position-relative mb-2 mb-lg-0">
+                                <img [src]="review.image" alt="Customer Villa" class="img-main shadow-lg">
+                                <div class="text-sub bg-white rounded-4">
+                                    <strong>"</strong>{{ review.text }}
+                                </div>
+                                <div class="decorative-blob"></div>
+
+                                <!-- Carousel Arrows below text-sub -->
+                                <div class="review-arrows d-flex gap-2 position-absolute">
+                                    <button (click)="scrollReviews(-1)" class="btn btn-sm btn-light shadow-sm carousel-arrow-review" aria-label="Previous">
+                                        <i class="bi bi-chevron-left text-dark"></i>
+                                    </button>
+                                    <button (click)="scrollReviews(1)" class="btn btn-sm btn-light shadow-sm carousel-arrow-review" aria-label="Next">
+                                        <i class="bi bi-chevron-right text-dark"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Content & Features -->
+            <div class="col-lg-6">
+                <div class="content-wrapper ps-lg-5">
+                    <span class="badge text-uppercase fw-bold mb-1 text-gold">Review</span>
+                    <h1 class="display-4 fw-bold mb-4">
+                        <span class="d-block">What our</span>
+                        <span class="d-block">Customer Says</span>
+                    </h1>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--FAQ Design-->
+
+<div class="faq-wrapper py-5 bg-white">
+    <div class="container-xl d-flex flex-column align-items-center text-center gap-5">
+        <div class="faq-header">
+            <h2 class="fw-bold mb-2">Frequently Ask Question</h2>
+            <p class="text-secondary small mx-auto" style="max-width: 600px;">
+                Discover great places and find your next unforgettable getaway.
+            </p>
+        </div>
+
+        <div class="faq-banner-container  rounded-4 border border-secondary-subtle w-100 p-5">
+            <div class="faq-detail">
+                <div class="row g-5">
+                    <div *ngFor="let faq of faqs; let i = index" class="col-md-6 mb-3">
+                        <div class="d-flex justify-content-between align-items-center cursor-pointer p-2 border-bottom border-light" (click)="toggleFaq(i)">
+                            <h6 class="fw-bold mb-0">{{ faq.question }}</h6>
+                            <button class="btn btn-link text-dark p-0 accordion-toggle" [class.active]="faq.expanded">
+                                <i class="bi" [class.bi-chevron-down]="!faq.expanded"
+                                    [class.bi-chevron-up]="faq.expanded"></i>
+                            </button>
+                        </div>
+                        <div class="faq-answer mt-2" [class.show]="faq.expanded">
+                            <p class="text-secondary small ms-2">{{ faq.answer }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

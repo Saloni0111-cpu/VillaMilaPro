@@ -1,0 +1,73 @@
+.auth-page .row {
+    height: 100%;
+}
+
+//left-login
+.auth-left {
+    padding: 34px 80px 0;
+
+    form {
+        width: 100%;
+        max-width: 420px;
+    }
+}
+
+.subtitle {
+    color: #6c757d;
+    font-size: 14px;
+    margin-bottom: 28px;
+}
+
+
+//title
+.auth-left h1 {
+    font-size: 34px;
+    margin-bottom: 8px;
+}
+
+//subtitle
+.auth-left p {
+    font-size: 15px;
+    margin-bottom: 18px;
+}
+
+.float-field {
+    span {
+        position: absolute;
+        top: 50%;
+        right: 14px;
+        transform: translateY(-50%);
+        cursor: pointer;
+        color: #9aa0a6;
+        font-size: 16px;
+    }
+}
+
+.float-field input::selection {
+    background: #8dd3bb;
+}
+
+.resend {
+    margin-top: 0;
+    font-size: 14px;
+    text-align: left;
+
+    a {
+        color: #e53935;
+        font-weight: 500;
+        text-decoration: none;
+    }
+}
+
+// right-image
+.auth-right {
+    padding: 40px;
+    height: 100%;
+}
+
+//tablet 
+@media (max-width: 768px) {
+    .auth-right {
+        display: none !important;
+    }
+}

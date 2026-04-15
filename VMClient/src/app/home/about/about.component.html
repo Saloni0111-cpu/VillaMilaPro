@@ -1,0 +1,103 @@
+<div class="container mt-5">
+    <div class="row">
+
+        <div class="col-lg-12 col-12">
+            <img src="img1.jpg" class="img-fluid w-100 rounded main-img">
+        </div>
+        <div class="row justify-content-center mt-5">
+            <div class="col-12 col-lg-8 text-start">
+                <h5 class="mt-4">About The Villa</h5>
+                <p>At Villa Mila, we believe that a home is more than just a structure — it is a reflection of your
+                    lifestyle, your dreams, and your success. Our mission is to create premium living spaces that
+                    combine modern architecture, timeless elegance, and unmatched comfort.
+                    <br /><br />
+                    With carefully designed villas in prime locations, Villa Mila offers a perfect blend of luxury and
+                    functionality. Every detail — from spacious interiors and natural lighting to landscaped
+                    surroundings — is thoughtfully crafted to deliver a serene and sophisticated living experience.
+                    <br /><br />
+                    We focus on quality construction, transparent processes, and customer satisfaction at every step.
+                    Whether you're looking for your dream home or a smart investment, Villa Mila ensures excellence,
+                    trust, and long-term value.
+                    <br /><br />
+                    Discover refined living. Discover Villa Mila.
+                </p>
+
+                <h5 class="mt-4">Our Mission</h5>
+                <p>
+                    At Villa Mila, we believe that a home is more than just a structure — it is a reflection of your
+                    lifestyle, your dreams, and your success. Our mission is to create premium living spaces that
+                    combine modern architecture, timeless elegance, and unmatched comfort.
+                    <br /><br />
+                    We focus on quality construction, transparent processes, and customer satisfaction at every step.
+                    Whether you're looking for your dream home or a smart investment, Villa Mila ensures excellence,
+                    trust, and long-term value.
+                    <br /><br />
+                    Discover refined living. Discover Villa Mila.
+                </p>
+
+                <h5 class="mt-4">Our Vision</h5>
+                <p>
+                    At Villa Mila, we believe that a home is more than just a structure — it is a reflection of your
+                    lifestyle, your dreams, and your success. Our mission is to create premium living spaces that
+                    combine modern architecture, timeless elegance, and unmatched comfort.
+                    
+                    <br /><br />
+                    We focus on quality construction, transparent processes, and customer satisfaction at every step.
+                    Whether you're looking for your dream home or a smart investment, Villa Mila ensures excellence,
+                    trust, and long-term value.
+                    <br /><br />
+                    Discover refined living. Discover Villa Mila.
+                </p>
+                <hr>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+    <!-- Review Section -->
+
+    <div class="container-xl mt-4">
+        <div class="row align-items-center g-5">
+            <!-- Left: Carousel Content -->
+            <div class="col-lg-6">
+                <div class="review-carousel-container position-relative">
+                    <div class="carousel-track review-track d-flex flex-nowrap" #reviewCarousel>
+                        <div *ngFor="let review of reviews" class="review-slide flex-shrink-0 w-100">
+                            <div class="image-stack position-relative mb-2 mb-lg-0">
+                                <img [src]="review.image" alt="Customer Villa" class="img-main shadow-lg">
+                                <div class="text-sub bg-white rounded-4">
+                                    <strong>"</strong>{{ review.text }}
+                                </div>
+                                <div class="decorative-blob"></div>
+
+                                <!-- Carousel Arrows below text-sub -->
+                                <div class="review-arrows d-flex gap-2 position-absolute">
+                                    <button (click)="scrollReviews(-1)"
+                                        class="btn btn-sm btn-light shadow-sm carousel-arrow-review"
+                                        aria-label="Previous">
+                                        <i class="bi bi-chevron-left text-dark"></i>
+                                    </button>
+                                    <button (click)="scrollReviews(1)"
+                                        class="btn btn-sm btn-light shadow-sm carousel-arrow-review" aria-label="Next">
+                                        <i class="bi bi-chevron-right text-dark"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Content -->
+            <div class="col-lg-6">
+                <div class="content-wrapper ps-lg-5">
+                    <span class="badge text-uppercase fw-bold mb-1 text-gold">Review</span>
+
+                </div>
+            </div>
+        </div>
+    </div>

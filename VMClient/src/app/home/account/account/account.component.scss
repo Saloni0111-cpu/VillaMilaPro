@@ -1,0 +1,160 @@
+.account-page {
+    background: #f4f1ec;
+    min-height: 100vh;
+    font-family: montserrat;
+}
+
+
+/* Sidebar */
+
+.sidebar-wrapper {
+    background: #f4f1ec;
+    padding: 20px;
+    overflow-y: auto;
+    transition: all 0.3s ease;
+}
+
+
+/* Profile card */
+
+.profile-box {
+    background: white;
+    padding: 14px;
+    border-radius: 10px;
+    margin-top: 40px;
+}
+
+.profile-box h6 {
+    margin: 0;
+    font-weight: 600;
+}
+
+.profile-box small {
+    color: #777;
+}
+
+
+/* Description */
+
+.sidebar-desc {
+    font-size: 15px;
+    margin: 14px 0;
+    color: #333;
+}
+
+
+/* Navigation */
+
+.nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: white;
+    padding: 12px 14px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #333;
+    transition: 0.2s ease;
+}
+
+.nav-link i:first-child {
+    width: 18px;
+}
+
+.arrow {
+    margin-left: auto;
+    font-size: 12px;
+    opacity: 0.6;
+}
+
+.nav-link:hover {
+    background: #000;
+    color: white;
+    transform: translateX(2px);
+}
+
+.nav-link.active {
+    background: #f5f2ee;
+    color: #a07f3c;
+    font-weight: 600;
+}
+
+
+/* Logout */
+
+.logout-btn {
+    margin-top: 16px;
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    background: white;
+    cursor: pointer;
+    color: #0061a5;
+    font-weight: 600;
+    text-align: left;
+}
+
+.logout-btn:hover {
+    background: #f8f6f2;
+}
+
+
+/* mobile view */
+
+@media (max-width: 767px) {
+    .sidebar-wrapper {
+        padding: 12px;
+    }
+    .profile-box {
+        margin-top: 20px;
+    }
+    .sidebar-desc {
+        font-size: 12px;
+    }
+    .nav-link {
+        font-size: 13px;
+        padding: 10px;
+    }
+    .logout-btn {
+        font-size: 13px;
+        padding: 10px;
+    }
+}
+
+
+/* Tablet view */
+
+@media (min-width: 768px) and (max-width: 1199px) {
+    .sidebar-wrapper {
+        padding: 18px;
+    }
+    .profile-box {
+        margin-top: 30px;
+    }
+    .nav-link {
+        font-size: 14px;
+    }
+}
+
+
+/* laptop view */
+
+@media (min-width: 1200px) {
+    .sidebar-wrapper {
+        min-height: 100vh;
+        padding: 24px;
+    }
+    .nav-link {
+        font-size: 15px;
+    }
+}

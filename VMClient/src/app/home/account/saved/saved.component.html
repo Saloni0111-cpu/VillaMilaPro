@@ -1,0 +1,39 @@
+<div class="saved-page py-4">
+
+    <h2 class="saved-title mb-1">Saved Villas</h2>
+
+    <div class="row g-4">
+
+        <div class="col-lg-4 col-md-6 col-12" *ngFor="let villa of savedVillas">
+
+            <div class="villa-card card h-100 shadow-sm">
+
+                <div class="position-relative">
+                    <img [src]="villa.image" class="card-img-top" alt="villa">
+
+                    <span class="checkout-badge">
+            Checked Out
+          </span>
+                </div>
+
+                <div class="card-body">
+
+                    <h5 class="card-title">{{villa.name}}</h5>
+
+                    <p class="location mb-2">
+                        <i class="bi bi-geo-alt"></i> {{villa.location}}
+                    </p>
+
+                    <p class="price">
+                        ₹ {{villa.price}} / night
+                    </p>
+
+                    <button class="btn btn-dark w-100" (click)="viewVilla(villa)" routerLink="/villa-details">
+                    View Details
+                    </button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

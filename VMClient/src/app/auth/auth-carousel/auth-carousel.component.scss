@@ -1,0 +1,74 @@
+//auth carousel wrapper
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-root{
+  width: 100%;
+  height: 100%;
+}
+
+//image card
+.image-card {
+  width: 100%;
+  height: calc(100vh - 80px);
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+}
+
+//bootstrap carousel
+.carousel,
+.carousel-inner,
+.carousel-item {
+  width: 100%;
+  height: 100%;
+}
+
+//image fit
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+//indicators
+.carousel-indicators {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  gap: 0;
+}
+
+//dot
+.carousel-indicators [data-bs-target] {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: none;
+  transition: all 0.3s ease;
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+//dot -> pill
+.carousel-indicators .active {
+  width: 22px;
+  height: 8px;
+  border-radius: 8px;
+  background-color: var(--indicator-color);
+}
+
+//mobile
+@media (max-width: 991px) {
+  .image-card {
+    height: 280px;
+    border-radius: 18px;
+  }
+}

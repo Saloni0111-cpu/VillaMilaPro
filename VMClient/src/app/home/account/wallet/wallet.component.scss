@@ -1,0 +1,147 @@
+               /* ===== PAGE WRAPPER ===== */
+               
+               .account-page {
+                   background: #f3f1ed;
+                   min-height: 100vh;
+                   font-family: montserrat, sans-serif;
+                   /* remove fixed margins that break responsiveness */
+                   padding: 40px;
+               }
+               /* ===== WALLET CARD ===== */
+               
+               .wallet-card {
+                   background: #fff;
+                   border-radius: 16px;
+                   padding: 24px;
+                   width: 100%;
+                   max-width: 100%;
+               }
+               /* ===== BALANCE STRIP ===== */
+               
+               .balance-card {
+                   position: relative;
+                   overflow: hidden;
+                   background: #f6f5f3;
+                   border-radius: 14px;
+                   padding: 18px 22px;
+                   font-size: 16px;
+                   color: #444;
+                   display: flex;
+                   align-items: center;
+                   justify-content: space-between;
+                   gap: 12px;
+                   /* decorative gold corner */
+                   &::before {
+                       content: "";
+                       position: absolute;
+                       top: -70px;
+                       right: -50px;
+                       width: 150px;
+                       height: 150px;
+                       background: radial-gradient( circle, #e5bb50 40%, #e6cb98 70%, transparent 71%);
+                       border-radius: 50%;
+                       opacity: 0.75;
+                   }
+                   h5 {
+                       margin: 0;
+                       font-weight: 600;
+                       font-size: 22px;
+                       z-index: 1;
+                   }
+                   span {
+                       z-index: 1;
+                   }
+               }
+               /* ===== INPUT ===== */
+               
+               .form-control {
+                   width: 100%;
+                   max-width: 450px;
+                   border-radius: 10px;
+                   padding: 12px;
+                   border: 1px solid #ddd;
+                   &:focus {
+                       border-color: #111;
+                       box-shadow: none;
+                   }
+               }
+               /* ===== BUTTON ===== */
+               
+               .wallet-btn {
+                   border-radius: 10px;
+                   padding: 12px 24px;
+                   font-weight: 500;
+               }
+               /* ===== TYPOGRAPHY ===== */
+               
+               h4 {
+                   font-weight: 700;
+               }
+               
+               h6 {
+                   margin-top: 18px;
+                   font-weight: 600;
+               }
+               
+               small {
+                   display: block;
+                   margin-top: 6px;
+               }
+               /* =========================
+   RESPONSIVE BREAKPOINTS
+   ========================= */
+               /* ===== MOBILE BALANCE FIX ===== */
+               
+               @media (max-width: 576px) {
+                   .balance-card {
+                       flex-direction: column;
+                       align-items: center;
+                       text-align: center;
+                       padding: 16px;
+                       /* smaller decorative shape */
+                       &::before {
+                           width: 100px;
+                           height: 100px;
+                           top: -50px;
+                           right: -30px;
+                           opacity: 0.6;
+                       }
+                       h5 {
+                           font-size: 22px;
+                           margin-top: 4px;
+                       }
+                   }
+               }
+               /*  Tablet */
+               
+               @media (min-width: 577px) and (max-width: 991px) {
+                   .wallet-card {
+                       padding: 22px;
+                   }
+                   .balance-card h5 {
+                       font-size: 22px;
+                   }
+                   .wallet-btn {
+                       width: 100%;
+                   }
+               }
+               /* Laptop */
+               
+               @media (min-width: 992px) {
+                   .wallet-card {
+                       padding: 28px;
+                   }
+                   .balance-card h5 {
+                       font-size: 24px;
+                   }
+               }
+               /*  Large screens */
+               
+               @media (min-width: 1200px) {
+                   .wallet-card {
+                       padding: 32px;
+                   }
+                   .balance-card h5 {
+                       font-size: 26px;
+                   }
+               }

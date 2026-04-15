@@ -1,0 +1,74 @@
+<div class="container my-2">
+    <div class="villa-header d-flex justify-content-between align-items-center mb-2">
+        <h4 class="title">Villas</h4>
+
+        <div class="actions d-flex gap-3 align-items-center">
+            <app-filter (filterChanged)="applyFilter($event)"></app-filter>
+
+            <select class="sort-pill rounded-pill" (change)="sortVillas($event)">
+        <option value="loved">Sort by: Most Loved</option>
+        <option value="priceLow">Price: Low → High</option>
+        <option value="priceHigh">Price: High → Low</option>
+        <option value="rating">Top Rated</option>
+      </select>
+        </div>
+    </div>
+
+    <!-- 🔥 FIXED LOOP -->
+    <div *ngFor="let villa of villas" class="card villa-card mb-3 shadow-sm">
+        <div class="row g-0 villa-row align-items-center">
+
+            <!-- Image -->
+            <div class="col-12 col-md-4 position-relative img-col">
+                <img *ngIf="villa.image" [src]="villa.image" class="img-fluid rounded-start villa-img" />
+
+                <span class="badge bg-light text-dark rating-badge">
+          ⭐ {{ villa.rating }}
+        </span>
+            </div>
+
+            <!-- Details -->
+            <div class="col-12 col-md-5 p-3">
+                <h5 class="fw-bold">{{ villa.title }}</h5>
+
+                <p class="text-muted mb-1">
+                    📍 {{ villa.location }} • <span class="text-primary">{{ villa.distance }}</span>
+                </p>
+
+                <p class="small text-muted">{{ villa.guests }}</p>
+
+                <hr />
+                <!--amenities-->
+                <div class="amenities-wrapper d-flex flex-wrap gap-3 mt-3">
+                    <div class="amenity text-center" *ngFor="let item of villa.amenities">
+                        <i [ngClass]="item.icon"></i>
+                        <p>{{ item.label }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Price -->
+            <div class="col-12 col-md-3 text-center p-3 border-start">
+
+                <select class="form-select mb-2" [(ngModel)]="villa.selectedRoom" (change)="updatePrice(villa)">
+          <option *ngFor="let room of roomOptions" [value]="room.label">
+            {{ room.label }}
+          </option>
+        </select>
+
+                <h4 class="text-warning">₹{{ villa.totalPrice }}</h4>
+
+                <button [routerLink]="['/villa-details', villa.id]">
+          View Details →
+        </button>
+
+                <!-- 🔥 DELETE BUTTON 
+                <button (click)="deleteVilla(villa.id)" class="btn btn-danger mt-2">
+          Delete
+        </button>-->
+
+            </div>
+
+        </div>
+    </div>
+</div>

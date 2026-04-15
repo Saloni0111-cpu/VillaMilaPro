@@ -1,0 +1,114 @@
+<div class="auth-page container-fluid">
+  <div class="row min-vh-100">
+
+    <div class="col-lg-1 d-none d-lg-block"></div>
+
+    <!-- LEFT IMAGE -->
+    <div class="col-lg-5 auth-left">
+      <app-auth-carousel [images]="carouselImages" [interval]="3000"></app-auth-carousel>
+    </div>
+
+    <!-- RIGHT SIGNUP -->
+    <div class="col-lg-5 auth-right">
+      <form [formGroup]="signupForm" (ngSubmit)="submit()">
+
+        <img src="../../../assets/logo-for-login.jpg" class="auth-logo" />
+
+        <h1>Sign up</h1>
+        <p>Let's get you all set up so you can access your account.</p>
+
+        <div class="row gx-3">
+          <div class="col-6">
+            <div class="float-field">
+              <input placeholder=" " formControlName="firstName" />
+              <label>First Name</label>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="float-field">
+              <input placeholder=" " formControlName="lastName" />
+              <label>Last Name</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row gx-3">
+          <div class="col-6">
+            <div class="float-field">
+              <input placeholder=" " formControlName="email" />
+              <label>Email</label>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="float-field">
+              <input placeholder=" " formControlName="phone" />
+              <label>Phone Number</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="float-field password-field">
+          <input [type]="showPassword ? 'text' : 'password'" placeholder=" " formControlName="password" />
+          <label>Password</label>
+          <span (click)="showPassword = !showPassword">
+            <i class="bi" [ngClass]="showPassword ? 'bi-eye-slash' : 'bi-eye'"></i>
+          </span>
+        </div>
+
+        <div class="float-field password-field">
+          <input [type]="showConfirm ? 'text' : 'password'" placeholder=" " formControlName="confirmPassword" />
+          <label>Confirm Password</label>
+          <span (click)="showConfirm = !showConfirm">
+            <i class="bi" [ngClass]="showConfirm ? 'bi-eye-slash' : 'bi-eye'"></i>
+          </span>
+        </div>
+
+        <label class="remember">
+          <input type="checkbox" formControlName="terms" />
+          <span class="remember-text">I agree to all the <span class="forgot"> Terms </span> and <span
+              class="forgot"> Privacy Policies </span></span>
+        </label>
+
+        <button type="submit" [disabled]="loading">{{ loading ? 'Creating...' : 'Create account' }}</button>
+
+        <p *ngIf="errorMsg" class="text-danger text-center mt-2">{{ errorMsg }}</p>
+        <p *ngIf="successMsg" class="text-success text-center mt-2">{{ successMsg }}</p>
+
+        <p class="switch">
+          Already have an account?
+          <a routerLink="/login">Login</a>
+        </p>
+
+        <div class="divider">
+          <span>Or Sign up with</span>
+        </div>
+
+        <div class="social-login container-fluid px-0">
+          <div class="row gx-3">
+            <div class="col-4">
+              <button class="social-btn facebook">
+                <i class="bi bi-facebook"></i>
+              </button>
+            </div>
+            <div class="col-4">
+              <button class="social-btn google">
+                <i class="bi bi-google"></i>
+              </button>
+            </div>
+            <div class="col-4">
+              <button class="social-btn apple">
+                <i class="bi bi-apple"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </form>
+    </div>
+
+    <div class="col-lg-1 d-none d-lg-block"></div>
+
+  </div>
+</div>

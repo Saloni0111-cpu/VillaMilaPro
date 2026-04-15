@@ -1,0 +1,51 @@
+<div class="auth-page container-fluid">
+    <div class="row min-vh-100">
+
+        <div class="col-lg-1 d-none d-lg-block"></div>
+
+        <!-- LEFT verifycode -->
+        <div class="col-lg-5 auth-left">
+            <form [formGroup]="verifycodeForm" (ngSubmit)="submit()">
+
+                <img src="../../../assets/logo-for-login.jpg" alt="Logo" class="auth-logo" />
+
+                <a routerLink="/login" class="back-link">
+                    <i class="bi bi-arrow-left"></i>Back to login
+                </a>
+
+                <h1>Verify Code</h1>
+                <p>An authentication code has been sent to your email.</p>
+
+                <div class="float-field">
+                    <input [type]="showCode ? 'text' : 'password'" formControlName="verifycode" placeholder=" " />
+                    <label>Enter code</label>
+
+                    <span (click)="showCode = !showCode">
+                        <i class="bi" [ngClass]="showCode ? 'bi-eye-slash' : 'bi-eye'">
+                        </i>
+                    </span>
+                </div>
+
+
+                <p class="resend">
+                    Didn't receive a code?
+                    <a href="javascript:void(0)" (click)="resendCode()">{{ resendLoading ? 'Sending...' : 'Resend' }}</a>
+                </p>
+
+                <button type="submit" [disabled]="loading">{{ loading ? 'Verifying...' : 'Verify' }}</button>
+
+                <p *ngIf="errorMsg" class="text-danger text-center mt-2">{{ errorMsg }}</p>
+                <p *ngIf="successMsg" class="text-success text-center mt-2">{{ successMsg }}</p>
+
+            </form>
+        </div>
+
+        <!-- RIGHT IMAGE -->
+        <div class="col-lg-5 auth-right">
+            <app-auth-carousel [images]="carouselImages" [interval]="3000"></app-auth-carousel>
+        </div>
+
+        <div class="col-lg-1 d-none d-lg-block"></div>
+
+    </div>
+</div>

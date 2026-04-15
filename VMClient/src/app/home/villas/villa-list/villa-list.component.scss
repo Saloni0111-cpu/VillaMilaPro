@@ -1,0 +1,223 @@
+    /* ================= CARD ================= */
+    
+    .villa-card {
+        width: 100%;
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        transition: all 0.25s ease;
+        font-family: montserrat;
+    }
+    /* ================= HEADER ================= */
+    
+    .villa-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 16px;
+        font-family: montserrat;
+    }
+    
+    .actions {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+    }
+    
+    .sort-pill {
+        border-radius: 30px;
+        padding: 8px 16px;
+        border: 1px solid #ddd;
+        background: #fff;
+        font-weight: 500;
+        cursor: pointer;
+    }
+    /* ================= IMAGE ================= */
+    
+    .villa-img {
+        width: 100%;
+        height: 270px;
+        object-fit: cover;
+    }
+    
+    .heart {
+        position: absolute;
+        top: 15px;
+        right: 12px;
+        background: #fff;
+        border-radius: 50%;
+        width: 26px;
+        height: 26px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .rating-badge {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        border-radius: 20px;
+        padding: 5px 10px;
+    }
+    
+    .star {
+        color: #e5a734;
+    }
+    /* ================= AMENITIES ================= */
+    
+    .amenity,
+    .more-count-box {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .amenity {
+        background: #f3f3f3;
+        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: 0.2s;
+        margin-left: 0;
+    }
+    
+    .amenity:hover {
+        background: #eaeaea;
+        transform: translateY(-2px);
+    }
+    
+    .amenity i {
+        font-size: 18px;
+    }
+    
+    .amenity p {
+        font-size: 11px;
+        margin: 0;
+    }
+    
+    .amenities-divider {
+        border-top: 1px solid black
+    }
+    /* ================= PRICE SECTION ================= */
+    
+    .price-section {
+        border-left: 1px solid #e0e0e0;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+    }
+    
+    .form-select {
+        width: 160px;
+        border-radius: 20px;
+        text-align: center;
+        margin: 0 auto;
+        margin-bottom: 10px;
+    }
+    
+    .btn-dark {
+        width: 60%;
+        border-radius: 20px;
+    }
+    /* ================= TABLET ================= */
+    
+    @media (max-width: 1024px) {
+        .villa-img {
+            height: 350px;
+        }
+        .amenity,
+        .more-count-box {
+            width: 70px;
+            height: 70px;
+        }
+        .price-section {
+            border-left: none;
+        }
+        .villa-header .title {
+            font-size: 20px;
+        }
+        .btn-dark {
+            width: 100%;
+            border-radius: 20px;
+        }
+    }
+    /* ================= MOBILE ================= */
+    
+    @media (max-width: 767px) {
+        .villa-card {
+            border-radius: 14px;
+        }
+        .villa-img {
+            height: 240px;
+        }
+        h5 {
+            text-align: center;
+            font-size: 20px;
+        }
+        p {
+            text-align: center;
+            font-size: 13px;
+        }
+        .price-section {
+            width: 100%;
+            padding: 16px;
+            margin-top: 12px;
+            border-top: 1px solid #e0e0e0;
+        }
+        .btn-dark {
+            width: 80%;
+        }
+        .amenity,
+        .more-count-box {
+            width: 60px;
+            height: 60px;
+        }
+        .villa-header {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 10px;
+        }
+        .villa-header .title {
+            font-size: 18px;
+            text-align: center;
+        }
+        .actions {
+            width: 100%;
+            display: flex;
+            gap: 8px;
+        }
+        /* Filter button + sort dropdown */
+        .actions>* {
+            flex: 1;
+        }
+        .sort-pill {
+            width: 100% !important;
+        }
+    }
+    /* ================= SMALL MOBILE ================= */
+    
+    @media (max-width: 480px) {
+        .villa-img {
+            height: 220px;
+        }
+        .amenity,
+        .more-count-box {
+            width: 50px;
+            height: 50px;
+        }
+        .btn-dark {
+            width: 50%;
+        }
+        .villa-header .title {
+            font-size: 16px;
+        }
+        .actions {
+            gap: 6px;
+        }
+    }

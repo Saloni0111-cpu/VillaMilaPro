@@ -1,0 +1,77 @@
+<div class="contact-section">
+    <div class="container">
+        <div class="row contact-card shadow-lg">
+            <!-- LEFT SIDE -->
+            <div class="col-md-5 contact-left">
+                <h2 class="main-title">Contact Us</h2>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam vel iste maiores.</p>
+
+                <div class="info-item mb-4 d-flex">
+                    <i class="bi bi-geo-alt me-3"></i>
+                    <div>
+                        <h6>Address</h6>
+                        <p>198 West 21th Street, Suite 721 New York NY 10016</p>
+                    </div>
+                </div>
+
+                <div class="info-item mb-4 d-flex">
+                    <i class="bi bi-telephone me-3"></i>
+                    <div>
+                        <h6>Phone</h6>
+                        <p>+1 235 2355 98</p>
+                    </div>
+                </div>
+                <div class="info-item mb-4 d-flex">
+                    <i class="bi bi-send me-3"></i>
+                    <div>
+                        <h6>Email</h6>
+                        <p>info&#64;yoursite.com</p>
+                    </div>
+                </div>
+            </div>
+            <!-- RIGHT SIDE FORM -->
+            <div class="col-md-7 contact-form">
+
+                <h3 class="contact-title">Get in touch</h3>
+
+                <form [formGroup]="contactForm" (ngSubmit)="submitForm()">
+
+                    <!-- Row 1 -->
+                    <div class="row mb-3">
+                        <div class="col-12">
+                            <input type="text" class="form-control custom-input" placeholder="Full Name" formControlName="full_name">
+                        </div>
+                    </div>
+                    <!-- Row 2 -->
+                    <div class="row mb-3">
+
+                        <div class="col-md-6">
+                            <input type="text" class="form-control custom-input" placeholder="Phone Number" formControlName="phone_number">
+                        </div>
+                        <div class="col-md-6">
+                            <input type="email" class="form-control custom-input" placeholder="Email Address" formControlName="email">
+                        </div>
+                    </div>
+                    <!-- Row 3 -->
+                    <div class="row mb-3">
+                        <div class="col-12">
+                            <textarea rows="2" class="form-control custom-input" placeholder="Address" formControlName="address"></textarea>
+                        </div>
+                    </div>
+                    <!-- Row 4 -->
+                    <div class="row mb-4">
+                        <div class="col-12">
+                            <textarea rows="4" class="form-control custom-input" placeholder="Message" formControlName="message"></textarea>
+                        </div>
+                    </div>
+                    <!-- Button -->
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="submit-btn">
+              Send Message
+            </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
